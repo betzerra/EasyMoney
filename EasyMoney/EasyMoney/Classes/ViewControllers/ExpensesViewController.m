@@ -76,6 +76,17 @@
 
 #pragma mark - UITableViewDelegate
 
+- (void)tableView:(UITableView *)aTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        Expense *anExpense = [self.lastExpenses objectAtIndex:indexPath.row];
+        
+        [[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext deleteObject:anExpense];
+        
+        self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
+        [aTableView reloadData];
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section{

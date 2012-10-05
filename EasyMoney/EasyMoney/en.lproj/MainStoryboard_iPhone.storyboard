@@ -14,12 +14,12 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-xT-g0I">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="456" id="7P0-lC-4P7"/>
-                                </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="456" id="ZiX-Dm-7fR"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ExpenseCell" textLabel="LT3-oC-OqX" detailTextLabel="Mae-LH-se5" style="IBUITableViewCellStyleSubtitle" id="cAQ-5N-Xu3">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -63,18 +63,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LcJ-aM-bzu" firstAttribute="bottom" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="7EE-Xd-dxq"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="BZf-oT-ZLx"/>
+                            <constraint firstItem="LcJ-aM-bzu" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="C5d-8T-uQt"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="JjA-TR-VeH"/>
                             <constraint firstItem="vM8-xT-g0I" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="MEh-Pq-Ahi"/>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="MRF-oy-EnE"/>
                             <constraint firstItem="vM8-xT-g0I" firstAttribute="bottom" secondItem="L7S-qk-nhD" secondAttribute="bottom" type="default" id="WYA-He-em5"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="bIs-W7-XJ9"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="j38-1E-r8v"/>
-                            <constraint firstItem="vM8-xT-g0I" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="ku6-cA-xdp"/>
-                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="sYz-ba-ryi"/>
-                            <constraint firstItem="LcJ-aM-bzu" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="yl9-JD-xtC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="navBar" destination="LcJ-aM-bzu" id="3id-sF-Znn"/>
                         <outlet property="tableView" destination="L7S-qk-nhD" id="Dln-w3-lHO"/>
