@@ -10,10 +10,15 @@
 #import "NewExpenseView.h"
 #import "NewExpenseViewDelegateProtocol.h"
 
-@interface ExpensesViewController : UIViewController <NewExpenseViewDelegateProtocol>{
+@interface ExpensesViewController : UIViewController <NewExpenseViewDelegateProtocol, UITableViewDataSource, UITableViewDelegate>{
     NewExpenseView *newExpenseView;
     IBOutlet UINavigationBar *navBar;
+    IBOutlet UITableView *tableView;
+    
+    NSArray *lastExpenses;    
 }
+
+@property (retain) NSArray *lastExpenses;
 
 - (IBAction)addButtonTapped:(id)sender;
 

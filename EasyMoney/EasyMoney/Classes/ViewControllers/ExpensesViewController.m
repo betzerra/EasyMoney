@@ -8,8 +8,12 @@
 
 #import "ExpensesViewController.h"
 #import "UIKitHelper.h"
+#import "ExpensesManager.h"
+#import "Expense.h"
+#import "Expense+Create.h"
 
 @implementation ExpensesViewController
+@synthesize lastExpenses;
 
 #pragma mark - Private
 
@@ -31,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -41,8 +47,10 @@
 }
 
 - (void)dealloc {
+    [lastExpenses release];
     [newExpenseView release];
     [navBar release];
+    [tableView release];
     [super dealloc];
 }
 
@@ -53,7 +61,34 @@
 }
 
 -(void)acceptButtonTapped{
+    NSString *aString = newExpenseView.text;
+    [Expense expenseWithAmount:[NSNumber numberWithInteger:100]
+                   description:aString
+                          date:[NSDate date]
+                      category:nil
+        inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
+
+    self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
+    [tableView reloadData];
+    
     [self dismissNewExpenseView];
+}
+
+#pragma mark - UITableViewDelegate
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section{
+    return [lastExpenses count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Expense *anExpense = [self.lastExpenses objectAtIndex:indexPath.row];
+    
+    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"ExpenseCell"];
+    cell.textLabel.text = anExpense.expenseDescription;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"At %@ - $%.2f", anExpense.date, [anExpense.amount floatValue]];
+    return cell;
 }
 
 #pragma mark - Actions

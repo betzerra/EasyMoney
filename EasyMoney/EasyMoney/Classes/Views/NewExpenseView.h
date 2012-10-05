@@ -16,6 +16,7 @@
     id <NewExpenseViewDelegateProtocol> delegate;
 }
 
+@property (readonly) NSString *text;
 @property (assign) id <NewExpenseViewDelegateProtocol> delegate;
 
 - (IBAction)cancelButtonTapped:(id)sender;

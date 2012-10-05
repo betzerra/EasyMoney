@@ -18,6 +18,37 @@
                                     <constraint firstAttribute="height" constant="456" id="7P0-lC-4P7"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ExpenseCell" textLabel="LT3-oC-OqX" detailTextLabel="Mae-LH-se5" style="IBUITableViewCellStyleSubtitle" id="cAQ-5N-Xu3">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT3-oC-OqX">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-LH-se5">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="LfK-Oz-ho2"/>
+                                    <outlet property="delegate" destination="2" id="JeJ-w9-l3g"/>
+                                </connections>
+                            </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-aM-bzu">
                                 <items>
                                     <navigationItem title="Expenses" id="14W-eE-t3H">
@@ -32,16 +63,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="BZf-oT-ZLx"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="JjA-TR-VeH"/>
                             <constraint firstItem="vM8-xT-g0I" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="MEh-Pq-Ahi"/>
+                            <constraint firstItem="vM8-xT-g0I" firstAttribute="bottom" secondItem="L7S-qk-nhD" secondAttribute="bottom" type="default" id="WYA-He-em5"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="bIs-W7-XJ9"/>
-                            <constraint firstItem="vM8-xT-g0I" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="kUa-hU-oY5"/>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="j38-1E-r8v"/>
+                            <constraint firstItem="vM8-xT-g0I" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="ku6-cA-xdp"/>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="sYz-ba-ryi"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="yl9-JD-xtC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
                     <connections>
                         <outlet property="navBar" destination="LcJ-aM-bzu" id="3id-sF-Znn"/>
+                        <outlet property="tableView" destination="L7S-qk-nhD" id="Dln-w3-lHO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -117,6 +153,7 @@
             <relationships>
                 <relationship kind="action" name="addButtonTapped:"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

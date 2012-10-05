@@ -12,6 +12,13 @@
 @implementation NewExpenseView
 @synthesize delegate;
 
+#pragma mark - Properties
+
+- (NSString *)text{
+    NSString *retVal = expenseTextInput.text;
+    return retVal;
+}
+
 #pragma mark - Public
 
 - (void)awakeFromNib{

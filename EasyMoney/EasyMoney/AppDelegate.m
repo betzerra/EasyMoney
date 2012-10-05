@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ExpensesManager.h"
 @implementation AppDelegate
 
 - (void)dealloc
@@ -19,6 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+
+    //  Just initialize database at startup
+    [ExpensesManager sharedInstance];
+    
     return YES;
 }
 							
