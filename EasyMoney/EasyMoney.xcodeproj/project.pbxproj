@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		678E43EA161E557400D8915C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E6161E557400D8915C /* first.png */; };
+		678E43EB161E557400D8915C /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E7161E557400D8915C /* first@2x.png */; };
+		678E43EC161E557400D8915C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E8161E557400D8915C /* second.png */; };
+		678E43ED161E557400D8915C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E9161E557400D8915C /* second@2x.png */; };
+		678E43FB161E55A500D8915C /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 678E43F8161E55A500D8915C /* ExpensesViewController.m */; };
+		678E43FC161E55A500D8915C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 678E43FA161E55A500D8915C /* SecondViewController.m */; };
+		678E4400161E55DD00D8915C /* NewExpenseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 678E43FF161E55DD00D8915C /* NewExpenseView.m */; };
+		678E4402161E55F600D8915C /* NewExpenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678E4401161E55F600D8915C /* NewExpenseView.xib */; };
+		678E4406161E59C200D8915C /* UIKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 678E4405161E59C200D8915C /* UIKitHelper.m */; };
+		678E440A161E67FA00D8915C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E4409161E67FA00D8915C /* background.png */; };
 		67F124CF161E2E0900BD7167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F124CE161E2E0900BD7167 /* UIKit.framework */; };
 		67F124D1161E2E0900BD7167 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F124D0161E2E0900BD7167 /* Foundation.framework */; };
 		67F124D3161E2E0900BD7167 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F124D2161E2E0900BD7167 /* CoreGraphics.framework */; };
@@ -18,15 +28,24 @@
 		67F124E5161E2E0900BD7167 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F124E4161E2E0900BD7167 /* Default-568h@2x.png */; };
 		67F124E8161E2E0900BD7167 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F124E6161E2E0900BD7167 /* MainStoryboard_iPhone.storyboard */; };
 		67F124EB161E2E0900BD7167 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F124E9161E2E0900BD7167 /* MainStoryboard_iPad.storyboard */; };
-		67F124EE161E2E0900BD7167 /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F124ED161E2E0900BD7167 /* ExpensesViewController.m */; };
-		67F124F0161E2E0900BD7167 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F124EF161E2E0900BD7167 /* first.png */; };
-		67F124F2161E2E0900BD7167 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F124F1161E2E0900BD7167 /* first@2x.png */; };
-		67F124F5161E2E0900BD7167 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F124F4161E2E0900BD7167 /* SecondViewController.m */; };
-		67F124F7161E2E0A00BD7167 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F124F6161E2E0A00BD7167 /* second.png */; };
-		67F124F9161E2E0A00BD7167 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F124F8161E2E0A00BD7167 /* second@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		678E43E6161E557400D8915C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		678E43E7161E557400D8915C /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		678E43E8161E557400D8915C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		678E43E9161E557400D8915C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		678E43F7161E55A500D8915C /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
+		678E43F8161E55A500D8915C /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
+		678E43F9161E55A500D8915C /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		678E43FA161E55A500D8915C /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		678E43FE161E55DD00D8915C /* NewExpenseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewExpenseView.h; path = Views/NewExpenseView.h; sourceTree = "<group>"; };
+		678E43FF161E55DD00D8915C /* NewExpenseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewExpenseView.m; path = Views/NewExpenseView.m; sourceTree = "<group>"; };
+		678E4401161E55F600D8915C /* NewExpenseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewExpenseView.xib; path = Views/NewExpenseView.xib; sourceTree = "<group>"; };
+		678E4404161E59C200D8915C /* UIKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKitHelper.h; sourceTree = "<group>"; };
+		678E4405161E59C200D8915C /* UIKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitHelper.m; sourceTree = "<group>"; };
+		678E4407161E5C5C00D8915C /* NewExpenseViewDelegateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NewExpenseViewDelegateProtocol.h; path = Protocols/NewExpenseViewDelegateProtocol.h; sourceTree = "<group>"; };
+		678E4409161E67FA00D8915C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		67F124CA161E2E0900BD7167 /* EasyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F124CE161E2E0900BD7167 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		67F124D0161E2E0900BD7167 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,14 +61,6 @@
 		67F124E4161E2E0900BD7167 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		67F124E7161E2E0900BD7167 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		67F124EA161E2E0900BD7167 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		67F124EC161E2E0900BD7167 /* ExpensesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
-		67F124ED161E2E0900BD7167 /* ExpensesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
-		67F124EF161E2E0900BD7167 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		67F124F1161E2E0900BD7167 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		67F124F3161E2E0900BD7167 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		67F124F4161E2E0900BD7167 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		67F124F6161E2E0A00BD7167 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		67F124F8161E2E0A00BD7167 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +77,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		678E43E4161E557400D8915C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				678E43E5161E557400D8915C /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		678E43E5161E557400D8915C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				678E4409161E67FA00D8915C /* background.png */,
+				678E43E6161E557400D8915C /* first.png */,
+				678E43E7161E557400D8915C /* first@2x.png */,
+				678E43E8161E557400D8915C /* second.png */,
+				678E43E9161E557400D8915C /* second@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		678E43F5161E55A500D8915C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				678E4408161E5C6100D8915C /* Protocols */,
+				678E4403161E59C200D8915C /* Helpers */,
+				678E43FD161E55A900D8915C /* Views */,
+				678E43F6161E55A500D8915C /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		678E43F6161E55A500D8915C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				678E43F7161E55A500D8915C /* ExpensesViewController.h */,
+				678E43F8161E55A500D8915C /* ExpensesViewController.m */,
+				678E43F9161E55A500D8915C /* SecondViewController.h */,
+				678E43FA161E55A500D8915C /* SecondViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		678E43FD161E55A900D8915C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				678E4401161E55F600D8915C /* NewExpenseView.xib */,
+				678E43FE161E55DD00D8915C /* NewExpenseView.h */,
+				678E43FF161E55DD00D8915C /* NewExpenseView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		678E4403161E59C200D8915C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				678E4404161E59C200D8915C /* UIKitHelper.h */,
+				678E4405161E59C200D8915C /* UIKitHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		678E4408161E5C6100D8915C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				678E4407161E5C5C00D8915C /* NewExpenseViewDelegateProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		67F124BF161E2E0900BD7167 = {
 			isa = PBXGroup;
 			children = (
@@ -96,18 +176,12 @@
 		67F124D4161E2E0900BD7167 /* EasyMoney */ = {
 			isa = PBXGroup;
 			children = (
+				678E43F5161E55A500D8915C /* Classes */,
+				678E43E4161E557400D8915C /* Resources */,
 				67F124DD161E2E0900BD7167 /* AppDelegate.h */,
 				67F124DE161E2E0900BD7167 /* AppDelegate.m */,
 				67F124E6161E2E0900BD7167 /* MainStoryboard_iPhone.storyboard */,
 				67F124E9161E2E0900BD7167 /* MainStoryboard_iPad.storyboard */,
-				67F124EC161E2E0900BD7167 /* ExpensesViewController.h */,
-				67F124ED161E2E0900BD7167 /* ExpensesViewController.m */,
-				67F124EF161E2E0900BD7167 /* first.png */,
-				67F124F1161E2E0900BD7167 /* first@2x.png */,
-				67F124F3161E2E0900BD7167 /* SecondViewController.h */,
-				67F124F4161E2E0900BD7167 /* SecondViewController.m */,
-				67F124F6161E2E0A00BD7167 /* second.png */,
-				67F124F8161E2E0A00BD7167 /* second@2x.png */,
 				67F124D5161E2E0900BD7167 /* Supporting Files */,
 			);
 			path = EasyMoney;
@@ -184,10 +258,12 @@
 				67F124E5161E2E0900BD7167 /* Default-568h@2x.png in Resources */,
 				67F124E8161E2E0900BD7167 /* MainStoryboard_iPhone.storyboard in Resources */,
 				67F124EB161E2E0900BD7167 /* MainStoryboard_iPad.storyboard in Resources */,
-				67F124F0161E2E0900BD7167 /* first.png in Resources */,
-				67F124F2161E2E0900BD7167 /* first@2x.png in Resources */,
-				67F124F7161E2E0A00BD7167 /* second.png in Resources */,
-				67F124F9161E2E0A00BD7167 /* second@2x.png in Resources */,
+				678E43EA161E557400D8915C /* first.png in Resources */,
+				678E43EB161E557400D8915C /* first@2x.png in Resources */,
+				678E43EC161E557400D8915C /* second.png in Resources */,
+				678E43ED161E557400D8915C /* second@2x.png in Resources */,
+				678E4402161E55F600D8915C /* NewExpenseView.xib in Resources */,
+				678E440A161E67FA00D8915C /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +276,10 @@
 			files = (
 				67F124DB161E2E0900BD7167 /* main.m in Sources */,
 				67F124DF161E2E0900BD7167 /* AppDelegate.m in Sources */,
-				67F124EE161E2E0900BD7167 /* ExpensesViewController.m in Sources */,
-				67F124F5161E2E0900BD7167 /* SecondViewController.m in Sources */,
+				678E43FB161E55A500D8915C /* ExpensesViewController.m in Sources */,
+				678E43FC161E55A500D8915C /* SecondViewController.m in Sources */,
+				678E4400161E55DD00D8915C /* NewExpenseView.m in Sources */,
+				678E4406161E59C200D8915C /* UIKitHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +403,7 @@
 				67F124FE161E2E0A00BD7167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
