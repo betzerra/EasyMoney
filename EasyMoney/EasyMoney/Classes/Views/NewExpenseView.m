@@ -23,7 +23,13 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    
+    //  View rounded corners
     self.layer.cornerRadius = CORNER_RADIUS;
+    
+    //  View border color and width
+    self.layer.borderWidth = 1.0f;
+    self.layer.borderColor = [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1].CGColor;
 }
 
 - (void)dealloc {
