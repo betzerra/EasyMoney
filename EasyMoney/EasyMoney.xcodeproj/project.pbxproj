@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		677924AD1620CAE9006D2EB2 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677924A71620CAE9006D2EB2 /* CKCalendarView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		677924AE1620CAE9006D2EB2 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924A91620CAE9006D2EB2 /* left_arrow.png */; };
+		677924AF1620CAE9006D2EB2 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924AA1620CAE9006D2EB2 /* left_arrow@2x.png */; };
+		677924B01620CAE9006D2EB2 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924AB1620CAE9006D2EB2 /* right_arrow.png */; };
+		677924B11620CAE9006D2EB2 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924AC1620CAE9006D2EB2 /* right_arrow@2x.png */; };
+		677924B41620CD4E006D2EB2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677924B31620CD4E006D2EB2 /* QuartzCore.framework */; };
 		678E43EA161E557400D8915C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E6161E557400D8915C /* first.png */; };
 		678E43EB161E557400D8915C /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E7161E557400D8915C /* first@2x.png */; };
 		678E43EC161E557400D8915C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E43E8161E557400D8915C /* second.png */; };
@@ -37,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		677924A61620CAE9006D2EB2 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		677924A71620CAE9006D2EB2 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		677924A91620CAE9006D2EB2 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
+		677924AA1620CAE9006D2EB2 /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
+		677924AB1620CAE9006D2EB2 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
+		677924AC1620CAE9006D2EB2 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
+		677924B31620CD4E006D2EB2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		678E43E6161E557400D8915C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		678E43E7161E557400D8915C /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		678E43E8161E557400D8915C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
@@ -85,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				677924B41620CD4E006D2EB2 /* QuartzCore.framework in Frameworks */,
 				6796B163161F78CF00CD0F76 /* CoreData.framework in Frameworks */,
 				67F124CF161E2E0900BD7167 /* UIKit.framework in Frameworks */,
 				67F124D1161E2E0900BD7167 /* Foundation.framework in Frameworks */,
@@ -95,6 +109,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		677924A41620CAE9006D2EB2 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				677924A51620CAE9006D2EB2 /* CKCalendar */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		677924A51620CAE9006D2EB2 /* CKCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				677924A61620CAE9006D2EB2 /* CKCalendarView.h */,
+				677924A71620CAE9006D2EB2 /* CKCalendarView.m */,
+				677924A81620CAE9006D2EB2 /* resources */,
+			);
+			path = CKCalendar;
+			sourceTree = "<group>";
+		};
+		677924A81620CAE9006D2EB2 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				677924A91620CAE9006D2EB2 /* left_arrow.png */,
+				677924AA1620CAE9006D2EB2 /* left_arrow@2x.png */,
+				677924AB1620CAE9006D2EB2 /* right_arrow.png */,
+				677924AC1620CAE9006D2EB2 /* right_arrow@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		678E43E4161E557400D8915C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +268,7 @@
 		67F124CD161E2E0900BD7167 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				677924B31620CD4E006D2EB2 /* QuartzCore.framework */,
 				6796B162161F78CF00CD0F76 /* CoreData.framework */,
 				67F124CE161E2E0900BD7167 /* UIKit.framework */,
 				67F124D0161E2E0900BD7167 /* Foundation.framework */,
@@ -236,6 +280,7 @@
 		67F124D4161E2E0900BD7167 /* EasyMoney */ = {
 			isa = PBXGroup;
 			children = (
+				677924A41620CAE9006D2EB2 /* Libs */,
 				6796B13C161F6C2900CD0F76 /* Data */,
 				678E43F5161E55A500D8915C /* Classes */,
 				678E43E4161E557400D8915C /* Resources */,
@@ -325,6 +370,10 @@
 				678E43ED161E557400D8915C /* second@2x.png in Resources */,
 				678E4402161E55F600D8915C /* NewExpenseView.xib in Resources */,
 				678E440A161E67FA00D8915C /* background.png in Resources */,
+				677924AE1620CAE9006D2EB2 /* left_arrow.png in Resources */,
+				677924AF1620CAE9006D2EB2 /* left_arrow@2x.png in Resources */,
+				677924B01620CAE9006D2EB2 /* right_arrow.png in Resources */,
+				677924B11620CAE9006D2EB2 /* right_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +395,7 @@
 				6796B156161F73C300CD0F76 /* Expense.m in Sources */,
 				6796B15D161F748A00CD0F76 /* Expense+Create.m in Sources */,
 				6796B160161F77F700CD0F76 /* ExpensesManager.m in Sources */,
+				677924AD1620CAE9006D2EB2 /* CKCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +484,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyMoney/EasyMoney-Prefix.pch";
 				INFOPLIST_FILE = "EasyMoney/EasyMoney-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -445,6 +496,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyMoney/EasyMoney-Prefix.pch";
 				INFOPLIST_FILE = "EasyMoney/EasyMoney-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
