@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "NewExpenseView.h"
 #import "NewExpenseViewDelegateProtocol.h"
+#import "DateSelectionView.h"
 
-@interface ExpensesViewController : UIViewController <NewExpenseViewDelegateProtocol, UITableViewDataSource, UITableViewDelegate>{
+@interface ExpensesViewController : UIViewController <NewExpenseViewDelegateProtocol, UITableViewDataSource, UITableViewDelegate, CKCalendarDelegate>{
     NewExpenseView *newExpenseView;
+    DateSelectionView *dateSelectionView;
     IBOutlet UINavigationBar *navBar;
     IBOutlet UITableView *tableView;
     

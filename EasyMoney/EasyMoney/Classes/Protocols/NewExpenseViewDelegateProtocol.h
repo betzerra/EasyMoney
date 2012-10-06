@@ -12,5 +12,6 @@
 
 -(void)acceptButtonTapped;
 -(void)cancelButtonTapped;
+-(void)dateButtonTapped;
 
 @end

@@ -17,6 +17,19 @@
 
 #pragma mark - Private
 
+- (void)dismissDateSelectionView{
+    //  Animate and release view
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect endFrame = dateSelectionView.frame;
+        endFrame.origin.y = -dateSelectionView.frame.size.height;
+        dateSelectionView.frame = endFrame;
+    }completion:^(BOOL completed){
+        [dateSelectionView removeFromSuperview];
+        [dateSelectionView release];
+        dateSelectionView = nil;
+    }];
+}
+
 - (void)dismissNewExpenseView{
     //  Animate and release view
     [UIView animateWithDuration:0.5 animations:^{
@@ -64,7 +77,7 @@
     NSString *aString = newExpenseView.text;
     [Expense expenseWithAmount:[NSNumber numberWithInteger:100]
                    description:aString
-                          date:[NSDate date]
+                          date:newExpenseView.dateSelected
                       category:nil
         inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
 
@@ -72,6 +85,35 @@
     [tableView reloadData];
     
     [self dismissNewExpenseView];
+}
+
+-(void)dateButtonTapped{
+    if (!dateSelectionView){
+        CGRect newFrame = CGRectMake(0, 0, 306, self.view.frame.size.height);
+        dateSelectionView = [[DateSelectionView alloc] initWithFrame:newFrame];
+        dateSelectionView.delegate = self;
+        dateSelectionView.selectedDate = newExpenseView.dateSelected;
+        [dateSelectionView retain];
+        [self.view insertSubview:dateSelectionView belowSubview:navBar];
+        
+        //  Animate
+        CGRect beginFrame = [UIKitHelper centeredFrameWithUIView:dateSelectionView];
+        beginFrame.origin.y = -beginFrame.size.height;
+        dateSelectionView.frame = beginFrame;
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            CGRect endFrame = [UIKitHelper centeredFrameWithUIView:dateSelectionView];
+            endFrame.origin.y = navBar.frame.size.height - CORNER_RADIUS;
+            dateSelectionView.frame = endFrame;
+        }];
+    }
+}
+
+#pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
+    newExpenseView.dateSelected = date;
+    [self dismissDateSelectionView];
 }
 
 #pragma mark - UITableViewDelegate
@@ -122,8 +164,6 @@
             endFrame.origin.y = navBar.frame.size.height - CORNER_RADIUS;
             newExpenseView.frame = endFrame;
         }];
-        
-        NSLog(@"#DEBUG Tapped");
     }
 }
 
