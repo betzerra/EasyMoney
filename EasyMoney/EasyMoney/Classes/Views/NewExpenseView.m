@@ -74,6 +74,7 @@
 }
 
 - (IBAction)dateButtonTapped:(id)sender {
+    [expenseTextInput resignFirstResponder];
     [delegate dateButtonTapped];
 }
 @end

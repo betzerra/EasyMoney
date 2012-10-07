@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
@@ -15,33 +15,75 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-xT-g0I">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="456" id="ZiX-Dm-7fR"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ExpenseCell" textLabel="LT3-oC-OqX" detailTextLabel="Mae-LH-se5" style="IBUITableViewCellStyleSubtitle" id="cAQ-5N-Xu3">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="60" id="cAQ-5N-Xu3" customClass="ExpenseCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT3-oC-OqX">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="888.88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSz-j7-SSz">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="57" id="Qyi-Hn-EhT"/>
+                                                        <constraint firstAttribute="height" constant="50" id="xQ1-Wa-A2c"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-LH-se5">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vainilla Latte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6x-VZ-sdo">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="92" id="7DY-HB-7oy"/>
+                                                        <constraint firstAttribute="height" constant="21" id="fbq-gf-UPP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5c-Ya-oxo">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="nH6-F4-VCi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="At 09/09/1985" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2D-bG-1xt">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="4LD-jl-3so"/>
+                                                        <constraint firstAttribute="width" constant="151" id="vrt-Gi-xkm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="R5c-Ya-oxo" firstAttribute="baseline" secondItem="b6x-VZ-sdo" secondAttribute="baseline" type="default" id="1mY-dj-sCO"/>
+                                            <constraint firstItem="b6x-VZ-sdo" firstAttribute="leading" secondItem="cAQ-5N-Xu3" secondAttribute="leading" constant="72" id="Ahm-7Q-xdh"/>
+                                            <constraint firstItem="F2D-bG-1xt" firstAttribute="leading" secondItem="b6x-VZ-sdo" secondAttribute="leading" type="default" id="DOX-OW-0hN"/>
+                                            <constraint firstItem="R5c-Ya-oxo" firstAttribute="top" secondItem="b6x-VZ-sdo" secondAttribute="top" type="default" id="EL4-1d-g07"/>
+                                            <constraint firstItem="BSz-j7-SSz" firstAttribute="centerY" secondItem="cAQ-5N-Xu3" secondAttribute="centerY" type="default" id="MQk-bS-Cda"/>
+                                            <constraint firstItem="R5c-Ya-oxo" firstAttribute="trailing" secondItem="F2D-bG-1xt" secondAttribute="trailing" type="default" id="OlL-E2-qUD"/>
+                                            <constraint firstItem="BSz-j7-SSz" firstAttribute="leading" secondItem="cAQ-5N-Xu3" secondAttribute="leading" type="default" id="WcW-is-qYc"/>
+                                            <constraint firstItem="b6x-VZ-sdo" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" constant="10" id="mqI-Mx-5pb"/>
+                                            <constraint firstItem="F2D-bG-1xt" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" constant="29" id="sCb-xZ-xpv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="BSz-j7-SSz" id="ijk-Wm-A75"/>
+                                            <outlet property="categoryLabel" destination="R5c-Ya-oxo" id="K1h-Zq-Hid"/>
+                                            <outlet property="dateLabel" destination="F2D-bG-1xt" id="com-e7-tAI"/>
+                                            <outlet property="descriptionLabel" destination="b6x-VZ-sdo" id="4Qt-pJ-MgB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -149,6 +191,15 @@
         <image name="second" width="16" height="16"/>
     </resources>
     <classes>
+        <class className="ExpenseCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="amountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="ExpensesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpensesViewController.h"/>
             <relationships>

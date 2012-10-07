@@ -11,6 +11,7 @@
 #import "ExpensesManager.h"
 #import "Expense.h"
 #import "Expense+Create.h"
+#import "ExpenseCell.h"
 
 @implementation ExpensesViewController
 @synthesize lastExpenses;
@@ -75,8 +76,41 @@
 
 -(void)acceptButtonTapped{
     NSString *aString = newExpenseView.text;
-    [Expense expenseWithAmount:[NSNumber numberWithInteger:100]
-                   description:aString
+    
+    NSArray *elements = [aString componentsSeparatedByString:@" "];
+
+    NSInteger i = 0;
+
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSRange firstCharRange = NSMakeRange(0, 1);
+    
+    NSNumber *amount = nil;
+    NSString *category = nil;
+    NSString *description = nil;
+    
+    while (i < [elements count] || !category || !description || !amount){
+        NSString *anElement = [elements objectAtIndex:i];
+
+        //  Get amount
+        NSNumber *aNumber = [numberFormatter numberFromString:anElement];
+        if (aNumber){
+            amount = aNumber;
+            
+        }else if ([[anElement substringWithRange:firstCharRange] isEqualToString:@"#"]){
+            category = anElement;
+            
+        }else{
+            description = anElement;
+        }
+            
+        i++;
+    }
+
+    
+    [Expense expenseWithAmount:amount
+                   description:description
                           date:newExpenseView.dateSelected
                       category:nil
         inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
@@ -138,9 +172,9 @@
 -(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     Expense *anExpense = [self.lastExpenses objectAtIndex:indexPath.row];
     
-    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"ExpenseCell"];
-    cell.textLabel.text = anExpense.expenseDescription;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"At %@ - $%.2f", anExpense.date, [anExpense.amount floatValue]];
+    ExpenseCell *cell = (ExpenseCell *)[aTableView dequeueReusableCellWithIdentifier:@"ExpenseCell"];
+    [cell setExpense:anExpense];
+    
     return cell;
 }
 
