@@ -12,6 +12,8 @@
 #import "Expense.h"
 #import "Expense+Create.h"
 #import "ExpenseCell.h"
+#import "Category.h"
+#import "Category+Create.h"
 
 @implementation ExpensesViewController
 @synthesize lastExpenses;
@@ -87,32 +89,40 @@
     NSRange firstCharRange = NSMakeRange(0, 1);
     
     NSNumber *amount = nil;
-    NSString *category = nil;
-    NSString *description = nil;
+    Category *category = nil;
+    NSString *categoryString = nil;
+    NSString *descriptionString = nil;
     
-    while (i < [elements count] || !category || !description || !amount){
+    while (i < [elements count]){
         NSString *anElement = [elements objectAtIndex:i];
-
+        
         //  Get amount
         NSNumber *aNumber = [numberFormatter numberFromString:anElement];
         if (aNumber){
             amount = aNumber;
             
         }else if ([[anElement substringWithRange:firstCharRange] isEqualToString:@"#"]){
-            category = anElement;
+            categoryString = anElement;
             
         }else{
-            description = anElement;
+            descriptionString = anElement;
         }
-            
+        
         i++;
     }
-
+    
+    if (categoryString){
+        category = [Category categoryWithName:categoryString inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
+    }
+    
+    if (!descriptionString){
+        descriptionString = @"";
+    }
     
     [Expense expenseWithAmount:amount
-                   description:description
+                   description:descriptionString
                           date:newExpenseView.dateSelected
-                      category:nil
+                      category:category
         inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
 
     self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		67059C1816211018009C97E1 /* ExpenseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67059C1716211018009C97E1 /* ExpenseCell.m */; };
+		6727A5A316212E3300D62DFE /* Category+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 6727A5A216212E3300D62DFE /* Category+Create.m */; };
 		677924AD1620CAE9006D2EB2 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677924A71620CAE9006D2EB2 /* CKCalendarView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		677924AE1620CAE9006D2EB2 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924A91620CAE9006D2EB2 /* left_arrow.png */; };
 		677924AF1620CAE9006D2EB2 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924AA1620CAE9006D2EB2 /* left_arrow@2x.png */; };
@@ -47,6 +48,8 @@
 /* Begin PBXFileReference section */
 		67059C1616211018009C97E1 /* ExpenseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseCell.h; path = Views/ExpenseCell.h; sourceTree = "<group>"; };
 		67059C1716211018009C97E1 /* ExpenseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseCell.m; path = Views/ExpenseCell.m; sourceTree = "<group>"; };
+		6727A5A116212E3300D62DFE /* Category+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Category+Create.h"; path = "Categories/Category+Create.h"; sourceTree = "<group>"; };
+		6727A5A216212E3300D62DFE /* Category+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Category+Create.m"; path = "Categories/Category+Create.m"; sourceTree = "<group>"; };
 		677924A61620CAE9006D2EB2 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
 		677924A71620CAE9006D2EB2 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		677924A91620CAE9006D2EB2 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 			children = (
 				6796B15B161F748A00CD0F76 /* Expense+Create.h */,
 				6796B15C161F748A00CD0F76 /* Expense+Create.m */,
+				6727A5A116212E3300D62DFE /* Category+Create.h */,
+				6727A5A216212E3300D62DFE /* Category+Create.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				677924AD1620CAE9006D2EB2 /* CKCalendarView.m in Sources */,
 				677D2A6F1620D2F200B11F06 /* DateSelectionView.m in Sources */,
 				67059C1816211018009C97E1 /* ExpenseCell.m in Sources */,
+				6727A5A316212E3300D62DFE /* Category+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

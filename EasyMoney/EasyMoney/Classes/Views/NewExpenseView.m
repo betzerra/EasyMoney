@@ -70,7 +70,9 @@
 }
 
 - (IBAction)acceptButtonTapped:(id)sender {
-    [delegate acceptButtonTapped];
+    if (![expenseTextInput.text isEqualToString:@""]){
+        [delegate acceptButtonTapped];
+    }
 }
 
 - (IBAction)dateButtonTapped:(id)sender {

@@ -47,14 +47,13 @@
     
     if (!matches){
         //  Handle Error
-    }else if ([matches count] == 0){
-        //  #TODO add category
-        
+    }else if ([matches count] == 0){        
         retVal = [NSEntityDescription insertNewObjectForEntityForName:@"Expense"
                                                inManagedObjectContext:context];
         retVal.amount = aNumber;
         retVal.expenseDescription = aDescription;
         retVal.date = aDate;
+        retVal.category = aCategory;
     }else{
         retVal = [matches lastObject];
     }

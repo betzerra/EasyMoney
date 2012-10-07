@@ -7,6 +7,7 @@
 //
 
 #import "ExpenseCell.h"
+#import "Category.h"
 
 @implementation ExpenseCell
 
@@ -29,7 +30,7 @@
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     
     descriptionLabel.text = [NSString stringWithFormat:@"%@", anExpense.expenseDescription];
-    categoryLabel.text = @"#tag";
+    categoryLabel.text = anExpense.category.name;
     amountLabel.text = [NSString stringWithFormat:@"%.2f", [anExpense.amount floatValue]];
     dateLabel.text = [NSString stringWithFormat:@"At %@", [dateFormatter stringFromDate:anExpense.date]];
     
@@ -38,6 +39,13 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+
+    NSInteger leftMargin = 0;
+    
+    if (![descriptionLabel.text isEqualToString:@""]){
+        leftMargin = 15;
+    }
+    
     CGSize descriptionLabelSize = [descriptionLabel.text sizeWithFont:descriptionLabel.font];
     CGRect descriptionLabelRect = CGRectMake(descriptionLabel.frame.origin.x,
                                              descriptionLabel.frame.origin.y,
@@ -46,7 +54,7 @@
     descriptionLabel.frame = descriptionLabelRect;
 
     CGSize categoryLabelSize = [categoryLabel.text sizeWithFont:categoryLabel.font];
-    CGRect categoryLabelRect = CGRectMake(descriptionLabel.frame.origin.x + descriptionLabel.frame.size.width + 15,
+    CGRect categoryLabelRect = CGRectMake(descriptionLabel.frame.origin.x + descriptionLabel.frame.size.width + leftMargin,
                                           categoryLabel.frame.origin.y,
                                           categoryLabelSize.width,
                                           categoryLabelSize.height);
