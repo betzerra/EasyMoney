@@ -20,6 +20,11 @@
 
 #pragma mark - Private
 
+- (void)configureCell:(ExpenseCell *)anExpenseCell atIndexPath:(NSIndexPath *)anIndexPath{
+    Expense *anExpense = [self.lastExpenses objectAtIndexPath:anIndexPath];
+    [anExpenseCell setExpense:anExpense];
+}
+
 - (void)dismissDateSelectionView{
     //  Animate and release view
     [UIView animateWithDuration:0.5 animations:^{
@@ -48,16 +53,20 @@
 
 #pragma mark - Public
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    
+    NSError *anError = [[[NSError alloc] init] autorelease];
     self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
+    self.lastExpenses.delegate = self;
+    BOOL success = [self.lastExpenses performFetch:&anError];
+    
+    if (!success){
+        NSLog (@"#DEBUG ERROR: %@", [anError debugDescription]);
+    }
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -68,6 +77,60 @@
     [navBar release];
     [tableView release];
     [super dealloc];
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    // The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+    [tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:(ExpenseCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+    [tableView endUpdates];
 }
 
 #pragma mark - NewExpenseViewDelegateProtocol
@@ -124,9 +187,6 @@
                           date:newExpenseView.dateSelected
                       category:category
         inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
-
-    self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
-    [tableView reloadData];
     
     [self dismissNewExpenseView];
 }
@@ -164,28 +224,46 @@
 
 - (void)tableView:(UITableView *)aTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(editingStyle == UITableViewCellEditingStyleDelete){
-        Expense *anExpense = [self.lastExpenses objectAtIndex:indexPath.row];
+        Expense *anExpense = [self.lastExpenses objectAtIndexPath:indexPath];
         
-        [[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext deleteObject:anExpense];
-        
-        self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
-        [aTableView reloadData];
+        [[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext deleteObject:anExpense];        
     }
 }
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    NSInteger retVal = 0;
+    retVal = [[self.lastExpenses sections] count];
+    return retVal;
+}
+
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section{
-    return [lastExpenses count];
+    NSInteger retVal = 0;
+    
+    if ([[self.lastExpenses sections] count]){
+        id sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
+        retVal = [sectionInfo numberOfObjects];
+    }
+
+    return retVal;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Expense *anExpense = [self.lastExpenses objectAtIndex:indexPath.row];
-    
     ExpenseCell *cell = (ExpenseCell *)[aTableView dequeueReusableCellWithIdentifier:@"ExpenseCell"];
-    [cell setExpense:anExpense];
-    
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSString *retVal = nil;
+    
+    if ([[self.lastExpenses sections] count]){
+        id sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
+        retVal = [sectionInfo name];
+    }
+    
+    return retVal;
 }
 
 #pragma mark - Actions

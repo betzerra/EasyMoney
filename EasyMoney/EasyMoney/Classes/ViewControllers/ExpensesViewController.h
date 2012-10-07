@@ -10,17 +10,18 @@
 #import "NewExpenseView.h"
 #import "NewExpenseViewDelegateProtocol.h"
 #import "DateSelectionView.h"
+#import <CoreData/CoreData.h>
 
-@interface ExpensesViewController : UIViewController <NewExpenseViewDelegateProtocol, UITableViewDataSource, UITableViewDelegate, CKCalendarDelegate>{
+@interface ExpensesViewController : UIViewController <NewExpenseViewDelegateProtocol, UITableViewDataSource, UITableViewDelegate, CKCalendarDelegate, NSFetchedResultsControllerDelegate>{
     NewExpenseView *newExpenseView;
     DateSelectionView *dateSelectionView;
     IBOutlet UINavigationBar *navBar;
     IBOutlet UITableView *tableView;
     
-    NSArray *lastExpenses;    
+    NSFetchedResultsController *lastExpenses;
 }
 
-@property (retain) NSArray *lastExpenses;
+@property (retain) NSFetchedResultsController *lastExpenses;
 
 - (IBAction)addButtonTapped:(id)sender;
 

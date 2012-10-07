@@ -18,4 +18,6 @@
 @property (nonatomic, retain) NSString * expenseDescription;
 @property (nonatomic, retain) Category *category;
 
+-(NSString *)dayKey;
+
 @end

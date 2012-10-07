@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SynthesizeSingleton.h"
+#import <CoreData/CoreData.h>
 
 @interface ExpensesManager : NSObject{
     UIManagedDocument *expensesDatabase;
 }
 
--(NSArray *) lastExpenses;
+-(NSFetchedResultsController *) lastExpenses;
 
 @property (readonly) UIManagedDocument* expensesDatabase;
 

@@ -32,40 +32,14 @@
     descriptionLabel.text = [NSString stringWithFormat:@"%@", anExpense.expenseDescription];
     categoryLabel.text = anExpense.category.name;
     amountLabel.text = [NSString stringWithFormat:@"%.2f", [anExpense.amount floatValue]];
-    dateLabel.text = [NSString stringWithFormat:@"At %@", [dateFormatter stringFromDate:anExpense.date]];
     
     [dateFormatter release];
-}
-
--(void)layoutSubviews{
-    [super layoutSubviews];
-
-    NSInteger leftMargin = 0;
-    
-    if (![descriptionLabel.text isEqualToString:@""]){
-        leftMargin = 15;
-    }
-    
-    CGSize descriptionLabelSize = [descriptionLabel.text sizeWithFont:descriptionLabel.font];
-    CGRect descriptionLabelRect = CGRectMake(descriptionLabel.frame.origin.x,
-                                             descriptionLabel.frame.origin.y,
-                                             descriptionLabelSize.width,
-                                             descriptionLabelSize.height);
-    descriptionLabel.frame = descriptionLabelRect;
-
-    CGSize categoryLabelSize = [categoryLabel.text sizeWithFont:categoryLabel.font];
-    CGRect categoryLabelRect = CGRectMake(descriptionLabel.frame.origin.x + descriptionLabel.frame.size.width + leftMargin,
-                                          categoryLabel.frame.origin.y,
-                                          categoryLabelSize.width,
-                                          categoryLabelSize.height);
-    categoryLabel.frame = categoryLabelRect;
 }
 
 - (void)dealloc {
     [amountLabel release];
     [descriptionLabel release];
     [categoryLabel release];
-    [dateLabel release];
     [super dealloc];
 }
 @end

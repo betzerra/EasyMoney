@@ -17,4 +17,12 @@
 @dynamic expenseDescription;
 @dynamic category;
 
+- (NSString *)dayKey {
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    
+    NSString *retVal = [dateFormatter stringFromDate:self.date];
+    return retVal;
+}
+
 @end

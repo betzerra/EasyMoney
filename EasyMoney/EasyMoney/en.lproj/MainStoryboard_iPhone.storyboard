@@ -9,17 +9,17 @@
             <objects>
                 <viewController title="First" id="2" customClass="ExpensesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-xT-g0I">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="456" id="xLB-rM-R0s"/>
+                                </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="456" id="ZiX-Dm-7fR"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="60" id="cAQ-5N-Xu3" customClass="ExpenseCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="60"/>
@@ -39,25 +39,16 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vainilla Latte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6x-VZ-sdo">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="92" id="7DY-HB-7oy"/>
+                                                        <constraint firstAttribute="width" constant="228" id="2h0-CC-ekw"/>
                                                         <constraint firstAttribute="height" constant="21" id="fbq-gf-UPP"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5c-Ya-oxo">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="49" id="nH6-F4-VCi"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="At 09/09/1985" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2D-bG-1xt">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2D-bG-1xt">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="4LD-jl-3so"/>
-                                                        <constraint firstAttribute="width" constant="151" id="vrt-Gi-xkm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,20 +59,17 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="R5c-Ya-oxo" firstAttribute="baseline" secondItem="b6x-VZ-sdo" secondAttribute="baseline" type="default" id="1mY-dj-sCO"/>
-                                            <constraint firstItem="b6x-VZ-sdo" firstAttribute="leading" secondItem="cAQ-5N-Xu3" secondAttribute="leading" constant="72" id="Ahm-7Q-xdh"/>
                                             <constraint firstItem="F2D-bG-1xt" firstAttribute="leading" secondItem="b6x-VZ-sdo" secondAttribute="leading" type="default" id="DOX-OW-0hN"/>
-                                            <constraint firstItem="R5c-Ya-oxo" firstAttribute="top" secondItem="b6x-VZ-sdo" secondAttribute="top" type="default" id="EL4-1d-g07"/>
                                             <constraint firstItem="BSz-j7-SSz" firstAttribute="centerY" secondItem="cAQ-5N-Xu3" secondAttribute="centerY" type="default" id="MQk-bS-Cda"/>
-                                            <constraint firstItem="R5c-Ya-oxo" firstAttribute="trailing" secondItem="F2D-bG-1xt" secondAttribute="trailing" type="default" id="OlL-E2-qUD"/>
                                             <constraint firstItem="BSz-j7-SSz" firstAttribute="leading" secondItem="cAQ-5N-Xu3" secondAttribute="leading" type="default" id="WcW-is-qYc"/>
+                                            <constraint firstAttribute="trailing" secondItem="F2D-bG-1xt" secondAttribute="trailing" constant="20" type="default" id="evh-ww-X4R"/>
                                             <constraint firstItem="b6x-VZ-sdo" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" constant="10" id="mqI-Mx-5pb"/>
                                             <constraint firstItem="F2D-bG-1xt" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" constant="29" id="sCb-xZ-xpv"/>
+                                            <constraint firstAttribute="trailing" secondItem="b6x-VZ-sdo" secondAttribute="trailing" constant="20" type="default" id="vXQ-Yb-G6Y"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="amountLabel" destination="BSz-j7-SSz" id="ijk-Wm-A75"/>
-                                            <outlet property="categoryLabel" destination="R5c-Ya-oxo" id="K1h-Zq-Hid"/>
-                                            <outlet property="dateLabel" destination="F2D-bG-1xt" id="com-e7-tAI"/>
+                                            <outlet property="categoryLabel" destination="F2D-bG-1xt" id="lNy-Wt-0CN"/>
                                             <outlet property="descriptionLabel" destination="b6x-VZ-sdo" id="4Qt-pJ-MgB"/>
                                         </connections>
                                     </tableViewCell>
@@ -105,14 +93,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LcJ-aM-bzu" firstAttribute="bottom" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="7EE-Xd-dxq"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="BZf-oT-ZLx"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="C5d-8T-uQt"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="JjA-TR-VeH"/>
                             <constraint firstItem="vM8-xT-g0I" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="MEh-Pq-Ahi"/>
-                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="MRF-oy-EnE"/>
-                            <constraint firstItem="vM8-xT-g0I" firstAttribute="bottom" secondItem="L7S-qk-nhD" secondAttribute="bottom" type="default" id="WYA-He-em5"/>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="N7e-3L-PNm"/>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="bIf-QN-u2h"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="bIs-W7-XJ9"/>
+                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="dTy-Fo-oye"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="j38-1E-r8v"/>
                         </constraints>
                     </view>
@@ -132,7 +120,7 @@
             <objects>
                 <viewController title="Second" id="3" customClass="SecondViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
@@ -218,6 +206,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

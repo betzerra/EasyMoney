@@ -14,7 +14,6 @@
     IBOutlet UILabel *amountLabel;
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UILabel *categoryLabel;
-    IBOutlet UILabel *dateLabel;
 }
 
 -(void)setExpense:(Expense *)anExpense;

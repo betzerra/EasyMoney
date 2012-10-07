@@ -7,7 +7,7 @@
 //
 
 #import "ExpensesManager.h"
-#import <CoreData/CoreData.h>
+#import "Expense.h"
 
 @implementation ExpensesManager
 @synthesize expensesDatabase;
@@ -46,8 +46,8 @@
     return self;
 }
 
--(NSArray *) lastExpenses{
-    NSArray *retVal = nil;
+-(NSFetchedResultsController *) lastExpenses{
+    NSFetchedResultsController *retVal = nil;
     NSManagedObjectContext *objectContext = [expensesDatabase managedObjectContext];
     
     NSSortDescriptor *aSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
@@ -58,8 +58,10 @@
     request.fetchLimit = 100;
     request.sortDescriptors = [NSArray arrayWithObject:aSortDescriptor];
     
-    NSError *error = [[[NSError alloc] init] autorelease];
-    retVal = [objectContext executeFetchRequest:request error:&error];
+    retVal = [[[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                  managedObjectContext:objectContext
+                                                    sectionNameKeyPath:@"dayKey"
+                                                             cacheName:@"lastExpenses"] autorelease];
     return retVal;
 }
 
