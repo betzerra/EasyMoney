@@ -19,6 +19,7 @@
     IBOutlet UITableView *tableView;
     
     NSFetchedResultsController *fetchedResultsController;
+    NSTimer *updateTimer;
 }
 
 - (IBAction)addButtonTapped:(id)sender;

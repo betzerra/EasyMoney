@@ -22,6 +22,14 @@
 @synthesize fetchedResultsController;
 #pragma mark - Private
 
+- (void)updateTable{
+    [updateTimer invalidate];
+    updateTimer = nil;
+    
+    [tableView reloadData];
+    NSLog(@"#DEBUG Updating table");
+}
+
 - (void)configureCell:(ExpenseCell *)anExpenseCell atIndexPath:(NSIndexPath *)anIndexPath{
     Expense *anExpense = [self.fetchedResultsController objectAtIndexPath:anIndexPath];
     [anExpenseCell setExpense:anExpense];
@@ -137,6 +145,11 @@
                                                arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
+    
+    if (updateTimer){
+        [updateTimer invalidate];
+    }
+    updateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTable) userInfo:nil repeats:NO];
 }
 
 
