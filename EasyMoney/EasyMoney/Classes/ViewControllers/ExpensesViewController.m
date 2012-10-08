@@ -14,6 +14,8 @@
 #import "ExpenseCell.h"
 #import "Category.h"
 #import "Category+Create.h"
+#import "ExpenseFooterView.h"
+#import "ExpenseHeaderView.h"
 
 @implementation ExpensesViewController
 
@@ -217,6 +219,42 @@
     return NO;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UIView *retVal = [UIKitHelper viewFromNibNamed:@"ExpenseFooterView"];
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    
+    float amount = 0;
+    for (Expense *anExpense in [sectionInfo objects]){
+        amount += [[anExpense amount] floatValue];
+    }
+    
+    [(ExpenseFooterView *)retVal setTotalAmount:amount];
+    
+    return retVal;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 25;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    
+    UIView *retVal = [UIKitHelper viewFromNibNamed:@"ExpenseHeaderView"];
+    [(ExpenseHeaderView *)retVal setTitle:[sectionInfo name]];
+    
+    return retVal;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 25;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -237,15 +275,6 @@
     ExpenseCell *cell = (ExpenseCell *)[aTableView dequeueReusableCellWithIdentifier:@"ExpenseCell"];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *retVal = nil;
-    
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    retVal = [sectionInfo name];
-    
-    return retVal;
 }
 
 #pragma mark - Actions

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		67059C1816211018009C97E1 /* ExpenseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67059C1716211018009C97E1 /* ExpenseCell.m */; };
+		670A7EE816237AD700A74712 /* ExpenseFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670A7EE716237AD700A74712 /* ExpenseFooterView.m */; };
+		670A7EEA1623833300A74712 /* ExpenseFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670A7EE91623833300A74712 /* ExpenseFooterView.xib */; };
+		670A7EED162385CB00A74712 /* ExpenseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670A7EEC162385CB00A74712 /* ExpenseHeaderView.m */; };
+		670A7EEF162385EA00A74712 /* ExpenseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670A7EEE162385EA00A74712 /* ExpenseHeaderView.xib */; };
 		6727A5A316212E3300D62DFE /* Category+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 6727A5A216212E3300D62DFE /* Category+Create.m */; };
 		677924AD1620CAE9006D2EB2 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677924A71620CAE9006D2EB2 /* CKCalendarView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		677924AE1620CAE9006D2EB2 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924A91620CAE9006D2EB2 /* left_arrow.png */; };
@@ -48,6 +52,12 @@
 /* Begin PBXFileReference section */
 		67059C1616211018009C97E1 /* ExpenseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseCell.h; path = Views/ExpenseCell.h; sourceTree = "<group>"; };
 		67059C1716211018009C97E1 /* ExpenseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseCell.m; path = Views/ExpenseCell.m; sourceTree = "<group>"; };
+		670A7EE616237AD700A74712 /* ExpenseFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseFooterView.h; path = Views/ExpenseFooterView.h; sourceTree = "<group>"; };
+		670A7EE716237AD700A74712 /* ExpenseFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseFooterView.m; path = Views/ExpenseFooterView.m; sourceTree = "<group>"; };
+		670A7EE91623833300A74712 /* ExpenseFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpenseFooterView.xib; path = Views/ExpenseFooterView.xib; sourceTree = "<group>"; };
+		670A7EEB162385CB00A74712 /* ExpenseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseHeaderView.h; path = Views/ExpenseHeaderView.h; sourceTree = "<group>"; };
+		670A7EEC162385CB00A74712 /* ExpenseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseHeaderView.m; path = Views/ExpenseHeaderView.m; sourceTree = "<group>"; };
+		670A7EEE162385EA00A74712 /* ExpenseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpenseHeaderView.xib; path = Views/ExpenseHeaderView.xib; sourceTree = "<group>"; };
 		6727A5A116212E3300D62DFE /* Category+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Category+Create.h"; path = "Categories/Category+Create.h"; sourceTree = "<group>"; };
 		6727A5A216212E3300D62DFE /* Category+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Category+Create.m"; path = "Categories/Category+Create.m"; sourceTree = "<group>"; };
 		677924A61620CAE9006D2EB2 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
@@ -197,11 +207,17 @@
 			children = (
 				677D2A6D1620D2F200B11F06 /* DateSelectionView.h */,
 				677D2A6E1620D2F200B11F06 /* DateSelectionView.m */,
-				678E4401161E55F600D8915C /* NewExpenseView.xib */,
-				678E43FE161E55DD00D8915C /* NewExpenseView.h */,
-				678E43FF161E55DD00D8915C /* NewExpenseView.m */,
 				67059C1616211018009C97E1 /* ExpenseCell.h */,
 				67059C1716211018009C97E1 /* ExpenseCell.m */,
+				670A7EE616237AD700A74712 /* ExpenseFooterView.h */,
+				670A7EE716237AD700A74712 /* ExpenseFooterView.m */,
+				670A7EE91623833300A74712 /* ExpenseFooterView.xib */,
+				670A7EEB162385CB00A74712 /* ExpenseHeaderView.h */,
+				670A7EEC162385CB00A74712 /* ExpenseHeaderView.m */,
+				670A7EEE162385EA00A74712 /* ExpenseHeaderView.xib */,
+				678E43FE161E55DD00D8915C /* NewExpenseView.h */,
+				678E43FF161E55DD00D8915C /* NewExpenseView.m */,
+				678E4401161E55F600D8915C /* NewExpenseView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -389,6 +405,8 @@
 				677924AF1620CAE9006D2EB2 /* left_arrow@2x.png in Resources */,
 				677924B01620CAE9006D2EB2 /* right_arrow.png in Resources */,
 				677924B11620CAE9006D2EB2 /* right_arrow@2x.png in Resources */,
+				670A7EEA1623833300A74712 /* ExpenseFooterView.xib in Resources */,
+				670A7EEF162385EA00A74712 /* ExpenseHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +432,8 @@
 				677D2A6F1620D2F200B11F06 /* DateSelectionView.m in Sources */,
 				67059C1816211018009C97E1 /* ExpenseCell.m in Sources */,
 				6727A5A316212E3300D62DFE /* Category+Create.m in Sources */,
+				670A7EE816237AD700A74712 /* ExpenseFooterView.m in Sources */,
+				670A7EED162385CB00A74712 /* ExpenseHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

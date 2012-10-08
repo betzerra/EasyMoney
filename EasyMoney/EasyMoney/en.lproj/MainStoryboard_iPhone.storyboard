@@ -12,14 +12,14 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-xT-g0I">
+                            <imageView userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-xT-g0I">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="456" id="xLB-rM-R0s"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="60" id="cAQ-5N-Xu3" customClass="ExpenseCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="60"/>
@@ -28,6 +28,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fcl-E9-J9B">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="888.88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSz-j7-SSz">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="Qyi-Hn-EhT"/>
@@ -59,9 +62,13 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="Fcl-E9-J9B" firstAttribute="bottom" secondItem="cAQ-5N-Xu3" secondAttribute="bottom" type="default" id="4ro-a4-qkl"/>
+                                            <constraint firstItem="Fcl-E9-J9B" firstAttribute="centerY" secondItem="BSz-j7-SSz" secondAttribute="centerY" type="default" id="99e-3B-tiU"/>
                                             <constraint firstItem="F2D-bG-1xt" firstAttribute="leading" secondItem="b6x-VZ-sdo" secondAttribute="leading" type="default" id="DOX-OW-0hN"/>
-                                            <constraint firstItem="BSz-j7-SSz" firstAttribute="centerY" secondItem="cAQ-5N-Xu3" secondAttribute="centerY" type="default" id="MQk-bS-Cda"/>
+                                            <constraint firstItem="Fcl-E9-J9B" firstAttribute="leading" secondItem="cAQ-5N-Xu3" secondAttribute="leading" type="default" id="GMK-Eu-F4T"/>
+                                            <constraint firstItem="Fcl-E9-J9B" firstAttribute="trailing" secondItem="cAQ-5N-Xu3" secondAttribute="trailing" type="default" id="GcJ-pv-qQy"/>
                                             <constraint firstItem="BSz-j7-SSz" firstAttribute="leading" secondItem="cAQ-5N-Xu3" secondAttribute="leading" type="default" id="WcW-is-qYc"/>
+                                            <constraint firstItem="Fcl-E9-J9B" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" type="default" id="XZ8-r2-wVf"/>
                                             <constraint firstAttribute="trailing" secondItem="F2D-bG-1xt" secondAttribute="trailing" constant="20" type="default" id="evh-ww-X4R"/>
                                             <constraint firstItem="b6x-VZ-sdo" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" constant="10" id="mqI-Mx-5pb"/>
                                             <constraint firstItem="F2D-bG-1xt" firstAttribute="top" secondItem="cAQ-5N-Xu3" secondAttribute="top" constant="29" id="sCb-xZ-xpv"/>
@@ -102,6 +109,7 @@
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="bIs-W7-XJ9"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="dTy-Fo-oye"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="j38-1E-r8v"/>
+                            <constraint firstItem="vM8-xT-g0I" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="qES-7n-VXq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
@@ -174,7 +182,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background.png" width="320" height="480"/>
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
@@ -184,7 +191,6 @@
             <relationships>
                 <relationship kind="outlet" name="amountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
