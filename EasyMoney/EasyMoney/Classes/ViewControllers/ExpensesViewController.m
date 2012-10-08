@@ -22,11 +22,6 @@
 @synthesize fetchedResultsController;
 #pragma mark - Private
 
-- (void)updateSectionAtIndexPaths:(NSArray *)indexPaths{
-    NSIndexPath *anIndexPath = [indexPaths objectAtIndex:0];
-    [tableView reloadSections:[NSIndexSet indexSetWithIndex:anIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-}
-
 - (void)configureCell:(ExpenseCell *)anExpenseCell atIndexPath:(NSIndexPath *)anIndexPath{
     Expense *anExpense = [self.fetchedResultsController objectAtIndexPath:anIndexPath];
     [anExpenseCell setExpense:anExpense];
@@ -125,12 +120,10 @@
             
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self performSelector:@selector(updateSectionAtIndexPaths:) withObject:[NSArray arrayWithObject:newIndexPath] afterDelay:0.50];
             break;
             
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self performSelector:@selector(updateSectionAtIndexPaths:) withObject:[NSArray arrayWithObject:indexPath] afterDelay:0.50];
             break;
             
         case NSFetchedResultsChangeUpdate:
