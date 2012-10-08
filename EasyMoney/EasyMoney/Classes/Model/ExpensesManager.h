@@ -15,6 +15,7 @@
 }
 
 -(NSFetchedResultsController *) lastExpenses;
+-(void) addExpenseWithString:(NSString *)anString andDate:(NSDate *)aDate;
 
 @property (readonly) UIManagedDocument* expensesDatabase;
 

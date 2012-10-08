@@ -8,6 +8,9 @@
 
 #import "ExpensesManager.h"
 #import "Expense.h"
+#import "Expense+Create.h"
+#import "Category.h"
+#import "Category+Create.h"
 
 @implementation ExpensesManager
 @synthesize expensesDatabase;
@@ -64,6 +67,62 @@
                                                              cacheName:@"lastExpenses"] autorelease];
     return retVal;
 }
+
+-(void) addExpenseWithString:(NSString *)aString andDate:(NSDate *)aDate{
+    //  Split string into elements using " " as divisor
+    NSArray *elements = [aString componentsSeparatedByString:@" "];
+    
+    NSInteger i = 0;
+    
+    //  numberFormatter will determine if the string is a number or not
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    //  all the elements starting with "#" are categories
+    NSRange firstCharRange = NSMakeRange(0, 1);
+    
+    NSNumber *amount = nil;
+    Category *category = nil;
+    NSString *categoryString = nil;
+    NSString *descriptionString = nil;
+    
+    while (i < [elements count]){
+        NSString *anElement = [elements objectAtIndex:i];
+        
+        if (![anElement isEqualToString:@""]){
+            //  Get amount
+            NSNumber *aNumber = [numberFormatter numberFromString:anElement];
+            if (aNumber){
+                amount = aNumber;
+                
+            }else if ([[anElement substringWithRange:firstCharRange] isEqualToString:@"#"]){
+                //  Category
+                categoryString = anElement;
+                
+            }else{
+                //  Description
+                descriptionString = anElement;
+            }
+        }
+        
+        i++;
+    }
+    
+    if (categoryString){
+        category = [Category categoryWithName:categoryString inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
+    }
+    
+    if (!descriptionString){
+        descriptionString = @"";
+    }
+    
+    [Expense expenseWithAmount:amount
+                   description:descriptionString
+                          date:aDate
+                      category:category
+        inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
+}
+
 
 SYNTHESIZE_SINGLETON_IMPLEMENTATION_FOR_CLASS(ExpensesManager)
 

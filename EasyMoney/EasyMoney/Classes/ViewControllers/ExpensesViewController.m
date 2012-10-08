@@ -61,20 +61,7 @@
         retVal = fetchedResultsController;
         
     }else{
-        NSManagedObjectContext *objectContext = [ExpensesManager sharedInstance].expensesDatabase.managedObjectContext;
-        
-        NSSortDescriptor *aSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-        
-        NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-        request.entity = [NSEntityDescription entityForName:@"Expense" inManagedObjectContext:objectContext];
-        request.fetchBatchSize = 20;
-        request.fetchLimit = 100;
-        request.sortDescriptors = [NSArray arrayWithObject:aSortDescriptor];
-        
-        fetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                      managedObjectContext:objectContext
-                                                        sectionNameKeyPath:@"dayKey"
-                                                                 cacheName:@"lastExpenses"] autorelease];
+        fetchedResultsController = [[ExpensesManager sharedInstance] lastExpenses];
         fetchedResultsController.delegate = self;
         [fetchedResultsController retain];
         
@@ -178,54 +165,7 @@
 }
 
 -(void)acceptButtonTapped{
-    NSString *aString = newExpenseView.text;
-    
-    NSArray *elements = [aString componentsSeparatedByString:@" "];
-
-    NSInteger i = 0;
-
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    
-    NSRange firstCharRange = NSMakeRange(0, 1);
-    
-    NSNumber *amount = nil;
-    Category *category = nil;
-    NSString *categoryString = nil;
-    NSString *descriptionString = nil;
-    
-    while (i < [elements count]){
-        NSString *anElement = [elements objectAtIndex:i];
-        
-        //  Get amount
-        NSNumber *aNumber = [numberFormatter numberFromString:anElement];
-        if (aNumber){
-            amount = aNumber;
-            
-        }else if ([[anElement substringWithRange:firstCharRange] isEqualToString:@"#"]){
-            categoryString = anElement;
-            
-        }else{
-            descriptionString = anElement;
-        }
-        
-        i++;
-    }
-    
-    if (categoryString){
-        category = [Category categoryWithName:categoryString inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
-    }
-    
-    if (!descriptionString){
-        descriptionString = @"";
-    }
-    
-    [Expense expenseWithAmount:amount
-                   description:descriptionString
-                          date:newExpenseView.dateSelected
-                      category:category
-        inManagedObjectContext:[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext];
-    
+    [[ExpensesManager sharedInstance] addExpenseWithString:newExpenseView.text andDate:newExpenseView.dateSelected];
     [self dismissNewExpenseView];
 }
 
