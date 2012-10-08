@@ -93,10 +93,12 @@
             
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView reloadSections:[NSIndexSet indexSetWithIndex:newIndexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView reloadSections:[NSIndexSet indexSetWithIndex:newIndexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];            
             break;
             
         case NSFetchedResultsChangeUpdate:
@@ -225,7 +227,6 @@
 - (void)tableView:(UITableView *)aTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(editingStyle == UITableViewCellEditingStyleDelete){
         Expense *anExpense = [self.lastExpenses objectAtIndexPath:indexPath];
-        
         [[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext deleteObject:anExpense];        
     }
 }
@@ -234,7 +235,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     NSInteger retVal = 0;
-    retVal = [[self.lastExpenses sections] count];
+    
+    if ([[self.lastExpenses sections] count]){
+        retVal = [[self.lastExpenses sections] count];
+    }
+        
     return retVal;
 }
 
@@ -245,7 +250,7 @@
         id sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
         retVal = [sectionInfo numberOfObjects];
     }
-
+    
     return retVal;
 }
 
@@ -259,8 +264,14 @@
     NSString *retVal = nil;
     
     if ([[self.lastExpenses sections] count]){
-        id sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
-        retVal = [sectionInfo name];
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
+
+        float amount = 0;
+        for (Expense *anExpense in [sectionInfo objects]){
+            amount += [[anExpense amount] floatValue];
+        }
+        
+        retVal = [NSString stringWithFormat:@"%@ ($%.2f)", [sectionInfo name], amount];
     }
     
     return retVal;
