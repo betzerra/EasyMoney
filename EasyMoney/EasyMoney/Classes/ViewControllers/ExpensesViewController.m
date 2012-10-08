@@ -16,12 +16,12 @@
 #import "Category+Create.h"
 
 @implementation ExpensesViewController
-@synthesize lastExpenses;
 
+@synthesize fetchedResultsController;
 #pragma mark - Private
 
 - (void)configureCell:(ExpenseCell *)anExpenseCell atIndexPath:(NSIndexPath *)anIndexPath{
-    Expense *anExpense = [self.lastExpenses objectAtIndexPath:anIndexPath];
+    Expense *anExpense = [self.fetchedResultsController objectAtIndexPath:anIndexPath];
     [anExpenseCell setExpense:anExpense];
 }
 
@@ -51,19 +51,58 @@
     }];
 }
 
+#pragma mark - Properties
+
+- (NSFetchedResultsController *)fetchedResultsController{
+    
+    NSFetchedResultsController *retVal = nil;
+    
+    if (fetchedResultsController != nil){
+        retVal = fetchedResultsController;
+        
+    }else{
+        NSManagedObjectContext *objectContext = [ExpensesManager sharedInstance].expensesDatabase.managedObjectContext;
+        
+        NSSortDescriptor *aSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+        
+        NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+        request.entity = [NSEntityDescription entityForName:@"Expense" inManagedObjectContext:objectContext];
+        request.fetchBatchSize = 20;
+        request.fetchLimit = 100;
+        request.sortDescriptors = [NSArray arrayWithObject:aSortDescriptor];
+        
+        fetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                      managedObjectContext:objectContext
+                                                        sectionNameKeyPath:@"dayKey"
+                                                                 cacheName:@"lastExpenses"] autorelease];
+        fetchedResultsController.delegate = self;
+        [fetchedResultsController retain];
+        
+        retVal = fetchedResultsController;
+    }
+    
+    return retVal;
+}
+
 #pragma mark - Public
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    NSError *anError = [[[NSError alloc] init] autorelease];
-    self.lastExpenses = [[ExpensesManager sharedInstance] lastExpenses];
-    self.lastExpenses.delegate = self;
-    BOOL success = [self.lastExpenses performFetch:&anError];
     
-    if (!success){
-        NSLog (@"#DEBUG ERROR: %@", [anError debugDescription]);
+    NSError *anError = [[[NSError alloc] init] autorelease];
+
+    if (![[self fetchedResultsController] performFetch:&anError]){
+        NSLog(@"#DEBUG Error: %@", [anError debugDescription]);
     }
-	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [tableView reloadData];
+}
+
+- (void)viewDidUnload{
+    self.fetchedResultsController = nil;
 }
 
 - (void)didReceiveMemoryWarning{
@@ -72,7 +111,6 @@
 }
 
 - (void)dealloc {
-    [lastExpenses release];
     [newExpenseView release];
     [navBar release];
     [tableView release];
@@ -93,12 +131,10 @@
             
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView reloadSections:[NSIndexSet indexSetWithIndex:newIndexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView reloadSections:[NSIndexSet indexSetWithIndex:newIndexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];            
             break;
             
         case NSFetchedResultsChangeUpdate:
@@ -226,30 +262,33 @@
 
 - (void)tableView:(UITableView *)aTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(editingStyle == UITableViewCellEditingStyleDelete){
-        Expense *anExpense = [self.lastExpenses objectAtIndexPath:indexPath];
-        [[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext deleteObject:anExpense];        
+        Expense *anExpense = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext deleteObject:anExpense];
+        
+        NSError *anError = nil;
+        if (![[ExpensesManager sharedInstance].expensesDatabase.managedObjectContext save:&anError]){
+            NSLog(@"#DEBUG Error %@", anError);
+        }
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    // The table view should not be re-orderable.
+    return NO;
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger retVal = 0;
-    
-    if ([[self.lastExpenses sections] count]){
-        retVal = [[self.lastExpenses sections] count];
-    }
-        
+    NSInteger retVal = [[self.fetchedResultsController sections] count];        
     return retVal;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section{
     NSInteger retVal = 0;
     
-    if ([[self.lastExpenses sections] count]){
-        id sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
-        retVal = [sectionInfo numberOfObjects];
-    }
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    retVal = [sectionInfo numberOfObjects];
     
     return retVal;
 }
@@ -263,16 +302,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSString *retVal = nil;
     
-    if ([[self.lastExpenses sections] count]){
-        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.lastExpenses sections] objectAtIndex:section];
-
-        float amount = 0;
-        for (Expense *anExpense in [sectionInfo objects]){
-            amount += [[anExpense amount] floatValue];
-        }
-        
-        retVal = [NSString stringWithFormat:@"%@ ($%.2f)", [sectionInfo name], amount];
-    }
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    retVal = [sectionInfo name];
     
     return retVal;
 }

@@ -18,11 +18,11 @@
     IBOutlet UINavigationBar *navBar;
     IBOutlet UITableView *tableView;
     
-    NSFetchedResultsController *lastExpenses;
+    NSFetchedResultsController *fetchedResultsController;
 }
 
-@property (retain) NSFetchedResultsController *lastExpenses;
-
 - (IBAction)addButtonTapped:(id)sender;
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end
