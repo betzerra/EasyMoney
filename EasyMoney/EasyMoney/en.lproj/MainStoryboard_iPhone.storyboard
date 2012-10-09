@@ -12,12 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-xT-g0I">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="456" id="xLB-rM-R0s"/>
-                                </constraints>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add_expense_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="VlP-Bs-U1F"/>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L7S-qk-nhD">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -102,19 +97,19 @@
                         <constraints>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="BZf-oT-ZLx"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="C5d-8T-uQt"/>
+                            <constraint firstAttribute="centerX" secondItem="VlP-Bs-U1F" secondAttribute="centerX" type="user" id="EEm-6B-C8d"/>
                             <constraint firstItem="LcJ-aM-bzu" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="JjA-TR-VeH"/>
-                            <constraint firstItem="vM8-xT-g0I" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="MEh-Pq-Ahi"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="N7e-3L-PNm"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="LcJ-aM-bzu" secondAttribute="bottom" type="default" id="bIf-QN-u2h"/>
-                            <constraint firstItem="LcJ-aM-bzu" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="bIs-W7-XJ9"/>
-                            <constraint firstItem="L7S-qk-nhD" firstAttribute="top" secondItem="vM8-xT-g0I" secondAttribute="top" type="default" id="dTy-Fo-oye"/>
+                            <constraint firstItem="VlP-Bs-U1F" firstAttribute="centerX" secondItem="LcJ-aM-bzu" secondAttribute="centerX" type="default" id="cFJ-Tm-6M9"/>
                             <constraint firstItem="L7S-qk-nhD" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="j38-1E-r8v"/>
-                            <constraint firstItem="vM8-xT-g0I" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="qES-7n-VXq"/>
+                            <constraint firstAttribute="centerY" secondItem="VlP-Bs-U1F" secondAttribute="centerY" type="user" id="kdB-vv-s3G"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="VlP-Bs-U1F" id="85u-Kp-cGl"/>
                         <outlet property="navBar" destination="LcJ-aM-bzu" id="3id-sF-Znn"/>
                         <outlet property="tableView" destination="L7S-qk-nhD" id="Dln-w3-lHO"/>
                     </connections>
@@ -182,6 +177,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_expense_background.png" width="140" height="140"/>
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>

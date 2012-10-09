@@ -17,6 +17,7 @@
     DateSelectionView *dateSelectionView;
     IBOutlet UINavigationBar *navBar;
     IBOutlet UITableView *tableView;
+    IBOutlet UIImageView *backgroundImageView;
     
     NSFetchedResultsController *fetchedResultsController;
     NSTimer *updateTimer;

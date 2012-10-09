@@ -61,6 +61,19 @@
     }];
 }
 
+- (BOOL)hasNoRecords{
+    BOOL retVal = [self.fetchedResultsController.fetchedObjects count] > 0;
+    return retVal;
+}
+
+- (void)checkBackgroundVisibility{
+    if ([self hasNoRecords]){
+        backgroundImageView.hidden = YES;
+    }else{
+        backgroundImageView.hidden = NO;
+    }
+}
+
 #pragma mark - Properties
 
 - (NSFetchedResultsController *)fetchedResultsController{
@@ -91,6 +104,8 @@
     if (![[self fetchedResultsController] performFetch:&anError]){
         NSLog(@"#DEBUG Error: %@", [anError debugDescription]);
     }
+    
+    [self checkBackgroundVisibility];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -111,6 +126,7 @@
     [newExpenseView release];
     [navBar release];
     [tableView release];
+    [backgroundImageView release];
     [super dealloc];
 }
 
@@ -145,6 +161,8 @@
                                                arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
+    
+    [self checkBackgroundVisibility];
     
     if (updateTimer){
         [updateTimer invalidate];

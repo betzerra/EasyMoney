@@ -12,6 +12,8 @@
 		670A7EEA1623833300A74712 /* ExpenseFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670A7EE91623833300A74712 /* ExpenseFooterView.xib */; };
 		670A7EED162385CB00A74712 /* ExpenseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 670A7EEC162385CB00A74712 /* ExpenseHeaderView.m */; };
 		670A7EEF162385EA00A74712 /* ExpenseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670A7EEE162385EA00A74712 /* ExpenseHeaderView.xib */; };
+		670A7EF21623C36D00A74712 /* add_expense_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 670A7EF01623C36D00A74712 /* add_expense_background.png */; };
+		670A7EF31623C36D00A74712 /* add_expense_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 670A7EF11623C36D00A74712 /* add_expense_background@2x.png */; };
 		6727A5A316212E3300D62DFE /* Category+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 6727A5A216212E3300D62DFE /* Category+Create.m */; };
 		677924AD1620CAE9006D2EB2 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677924A71620CAE9006D2EB2 /* CKCalendarView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		677924AE1620CAE9006D2EB2 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 677924A91620CAE9006D2EB2 /* left_arrow.png */; };
@@ -29,7 +31,6 @@
 		678E4400161E55DD00D8915C /* NewExpenseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 678E43FF161E55DD00D8915C /* NewExpenseView.m */; };
 		678E4402161E55F600D8915C /* NewExpenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678E4401161E55F600D8915C /* NewExpenseView.xib */; };
 		678E4406161E59C200D8915C /* UIKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 678E4405161E59C200D8915C /* UIKitHelper.m */; };
-		678E440A161E67FA00D8915C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E4409161E67FA00D8915C /* background.png */; };
 		6796B140161F6C4A00CD0F76 /* EasyMoneyData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6796B13E161F6C4A00CD0F76 /* EasyMoneyData.xcdatamodeld */; };
 		6796B153161F73C200CD0F76 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6796B152161F73C200CD0F76 /* Category.m */; };
 		6796B156161F73C300CD0F76 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 6796B155161F73C300CD0F76 /* Expense.m */; };
@@ -58,6 +59,8 @@
 		670A7EEB162385CB00A74712 /* ExpenseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpenseHeaderView.h; path = Views/ExpenseHeaderView.h; sourceTree = "<group>"; };
 		670A7EEC162385CB00A74712 /* ExpenseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpenseHeaderView.m; path = Views/ExpenseHeaderView.m; sourceTree = "<group>"; };
 		670A7EEE162385EA00A74712 /* ExpenseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExpenseHeaderView.xib; path = Views/ExpenseHeaderView.xib; sourceTree = "<group>"; };
+		670A7EF01623C36D00A74712 /* add_expense_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_expense_background.png; sourceTree = "<group>"; };
+		670A7EF11623C36D00A74712 /* add_expense_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_expense_background@2x.png"; sourceTree = "<group>"; };
 		6727A5A116212E3300D62DFE /* Category+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Category+Create.h"; path = "Categories/Category+Create.h"; sourceTree = "<group>"; };
 		6727A5A216212E3300D62DFE /* Category+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Category+Create.m"; path = "Categories/Category+Create.m"; sourceTree = "<group>"; };
 		677924A61620CAE9006D2EB2 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
@@ -83,7 +86,6 @@
 		678E4404161E59C200D8915C /* UIKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKitHelper.h; sourceTree = "<group>"; };
 		678E4405161E59C200D8915C /* UIKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitHelper.m; sourceTree = "<group>"; };
 		678E4407161E5C5C00D8915C /* NewExpenseViewDelegateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NewExpenseViewDelegateProtocol.h; path = Protocols/NewExpenseViewDelegateProtocol.h; sourceTree = "<group>"; };
-		678E4409161E67FA00D8915C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		6796B13F161F6C4A00CD0F76 /* EasyMoneyData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyMoneyData.xcdatamodel; sourceTree = "<group>"; };
 		6796B151161F73C200CD0F76 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = Entities/Category.h; sourceTree = "<group>"; };
 		6796B152161F73C200CD0F76 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = Entities/Category.m; sourceTree = "<group>"; };
@@ -168,7 +170,8 @@
 		678E43E5161E557400D8915C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				678E4409161E67FA00D8915C /* background.png */,
+				670A7EF01623C36D00A74712 /* add_expense_background.png */,
+				670A7EF11623C36D00A74712 /* add_expense_background@2x.png */,
 				678E43E6161E557400D8915C /* first.png */,
 				678E43E7161E557400D8915C /* first@2x.png */,
 				678E43E8161E557400D8915C /* second.png */,
@@ -400,13 +403,14 @@
 				678E43EC161E557400D8915C /* second.png in Resources */,
 				678E43ED161E557400D8915C /* second@2x.png in Resources */,
 				678E4402161E55F600D8915C /* NewExpenseView.xib in Resources */,
-				678E440A161E67FA00D8915C /* background.png in Resources */,
 				677924AE1620CAE9006D2EB2 /* left_arrow.png in Resources */,
 				677924AF1620CAE9006D2EB2 /* left_arrow@2x.png in Resources */,
 				677924B01620CAE9006D2EB2 /* right_arrow.png in Resources */,
 				677924B11620CAE9006D2EB2 /* right_arrow@2x.png in Resources */,
 				670A7EEA1623833300A74712 /* ExpenseFooterView.xib in Resources */,
 				670A7EEF162385EA00A74712 /* ExpenseHeaderView.xib in Resources */,
+				670A7EF21623C36D00A74712 /* add_expense_background.png in Resources */,
+				670A7EF31623C36D00A74712 /* add_expense_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
